@@ -1,6 +1,3 @@
-Certainly! Below is a markdown template for a README file that you can use for your git repository. This template includes an introduction to the repository, instructions on getting started with polyglot notebooks using the Semantic Kernel and C#, and links to the Visual Studio Polyglot extension and Semantic Kernel.
-
-```markdown
 # Polyglot Notebooks with Semantic Kernel and C#
 
 Welcome to the repository for polyglot notebooks demonstrating the ease of getting started with Large Language Models (LLMs) using Semantic Kernel and C#. This repository contains examples and documentation to help you integrate cutting-edge AI capabilities into your applications.
@@ -53,7 +50,3 @@ This project is licensed under the MIT License - see the *An external link was r
 
 - Thanks to all the contributors who have helped with the development of these notebooks.
 - Special thanks to the Semantic Kernel team for providing the tools to integrate AI services.
-
-```
-
-Feel free to customize this template to better fit the specifics of your project and repository. Remember to replace placeholders like `your-username` and `your-repo-name` with your actual GitHub username and repository name. If you need further assistance or have any questions, please let me know!
