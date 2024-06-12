@@ -1,0 +1,7 @@
+{
+    "type":     "azure",
+    "model":    "gpt4o",
+    "endpoint": "",
+    "apikey":   "", 
+    "org":      ""
+  }
