@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft. All rights reserved.
 
-using SkiaSharp;
 using System.Net.Http;
+using SkiaSharp;
 
 // ReSharper disable InconsistentNaming
 public static class SkiaUtils
@@ -22,7 +22,8 @@ public static class SkiaUtils
             SKBitmap webBitmap = SKBitmap.Decode(memStream);
             canvas.DrawBitmap(webBitmap, 0, 0, null);
             surface.Draw(canvas, 0, 0, null);
-        };
+        }
+        ;
         surface.Snapshot().Display();
     }
 }

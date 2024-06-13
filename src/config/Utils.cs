@@ -12,10 +12,17 @@ public static class Utils
         var space = new[] { ' ', '\r', '\n', '\t' };
         do
         {
-            i = last + maxLineLength > text.Length
-                ? text.Length
-                : (text.LastIndexOfAny(new[] { ' ', ',', '.', '?', '!', ':', ';', '-', '\n', '\r', '\t' }, Math.Min(text.Length - 1, last + maxLineLength)) + 1);
-            if (i <= last) i = Math.Min(last + maxLineLength, text.Length);
+            i =
+                last + maxLineLength > text.Length
+                    ? text.Length
+                    : (
+                        text.LastIndexOfAny(
+                            new[] { ' ', ',', '.', '?', '!', ':', ';', '-', '\n', '\r', '\t' },
+                            Math.Min(text.Length - 1, last + maxLineLength)
+                        ) + 1
+                    );
+            if (i <= last)
+                i = Math.Min(last + maxLineLength, text.Length);
             result.AppendLine(text.Substring(last, i - last).Trim(space));
             last = i;
         } while (i < text.Length);

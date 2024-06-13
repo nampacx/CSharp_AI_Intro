@@ -1,0 +1,9 @@
+{
+    "type":     "azure",
+    "model":    "",
+    "endpoint": "",
+    "apikey":   "", 
+    "org":      "",
+    "aisearchendpoint": "",
+    "aisearchkey": ""
+  }
