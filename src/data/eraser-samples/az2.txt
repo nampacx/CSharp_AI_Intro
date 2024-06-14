@@ -1,0 +1,20 @@
+#Request
+I want to have a azure architecture diagram for a web application.
+Place the WebApplication in a Subscription calles Sub1 and a ResourceGroup called RG1.
+In that ResourceGroup place a StaticWebApp called WebApp1, a storage account called Storage1 and a SQL Database called SQL1.
+The AppService should have a connection to the SQL Database and the Storage Account.
+
+#Response
+cloud-architecture-diagram
+// Define groups and nodes
+Subscription Sub1 {
+  ResourceGroup RG1 {
+    WebApp1 [icon: azure-static-apps]
+    Storage1 [icon: azure-storage]
+    SQL1 [icon: azure-sql-database]
+  }
+}
+
+// Define connections
+WebApp1 > Storage1
+WebApp1 > SQL1

@@ -1,0 +1,26 @@
+#Request:
+The architecture requires the setup of a multi-tiered Azure environment, including an Azure Active Directory (AD) tenant for identity management, Azure Load Balancers for traffic distribution, and a Virtual Network segmented into Web and Business Tiers. Within the Virtual Network, the Web Tier hosts three virtual machines (VMs) for initial traffic handling, while the Business Tier contains another set of three VMs for processing, connected via an additional load balancer. The AD tenant is linked to the Load Balancers, which in turn route traffic to the VMs in the Web Tier, and then to the Business Tier through another load balancer, ensuring efficient traffic flow and processing.
+
+#Response:
+cloud-architecture-diagram
+// Define groups and nodes
+AD tenant [icon: azure-active-directory]
+Load Balancers [icon: azure-load-balancers]
+Virtual Network [icon: azure-virtual-networks] {
+  Web Tier [icon: azure-network-security-groups] {
+    vm1 [icon: azure-virtual-machine]
+    vm2 [icon: azure-virtual-machine]
+    vm3 [icon: azure-virtual-machine]
+  }
+  Business Tier [icon: azure-network-security-groups] {
+    lb2 [icon: azure-load-balancers]
+    vm4 [icon: azure-virtual-machine]
+    vm5 [icon: azure-virtual-machine]
+    vm6 [icon: azure-virtual-machine]
+  }
+}
+
+// Define connections
+AD tenant > Load Balancers
+Load Balancers > vm1, vm2, vm3
+vm1, vm2, vm3 > lb2 > vm4, vm5, vm6

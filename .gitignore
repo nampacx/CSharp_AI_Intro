@@ -497,3 +497,4 @@ swa-cli.config.json
 /python/.devcontainer/*
 src/config/settings.json
 src/config/settings.json
+.vscode/settings.json
