@@ -1,0 +1,40 @@
+#Request
+I want to have a azure architecture diagram for a web application.
+I want ot have a subscription with 2 ResourceGroups
+In each ResourceGroup place a StaticWebApp called WebApp1, a storage account called Storage1 and a SQL Database called SQL1.
+The AppService of each should have a connection to the SQL Database and the Storage Account in their ResourceGroup.
+Add a third ResourceGroup called SharedResources with a KeyVault called KeyVault1.
+All static web apps should have connection to the KeyVault.
+Also create a FrontDoor ResourceGroup with an load balancer called FrontDoor1 which is connected to both StaticWebApps.
+
+#Response
+cloud-architecture-diagram
+// Define groups and nodes
+Subscription Sub1 {
+  ResourceGroup RG1 {
+    WebApp1 [icon: azure-static-apps]
+    Storage1 [icon: azure-storage]
+    SQL1 [icon: azure-sql-database]
+  }
+  ResourceGroup RG2 {
+    WebApp2 [icon: azure-static-apps]
+    Storage2 [icon: azure-storage]
+    SQL2 [icon: azure-sql-database]
+  }
+  ResourceGroup SharedResources {
+    KeyVault [icon: azure-key-vault]
+  }
+  ResourceGroup FrontDoor {
+    FrontDoor [icon: azure-load-balancers]
+  }
+}
+
+// Define connections
+WebApp1 > Storage1
+WebApp1> SQL1
+WebApp1 > KeyVault
+WebApp2 > Storage2
+WebApp2 > SQL2
+WebApp2 > KeyVault
+FrontDoor > WebApp1
+FrontDoor > WebApp2

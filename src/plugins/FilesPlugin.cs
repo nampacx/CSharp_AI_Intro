@@ -8,13 +8,21 @@ using System.Text;
 using Microsoft.SemanticKernel;
 using Kernel = Microsoft.SemanticKernel.Kernel;
 
-internal sealed class FilesPlugin
+public sealed class FilesPlugin
 {
-    private const bool logging = false;
+    private const bool logging = true;
+
+    private static void ReportCalling([CallerMemberName] string caller = "")
+    {
+        if (logging)
+            Console.WriteLine($"Called by: {caller}");
+    }
 
     [KernelFunction, Description("Reads all text from a file.")]
     public string ReadFileContent([Description("Path to the file")] string filePath)
     {
+        ReportCalling();
+
         if (filePath is null or "")
         {
             return $"Error reading file {filePath} Please provide a file path to read the content.";
@@ -23,9 +31,17 @@ internal sealed class FilesPlugin
         return File.ReadAllText(filePath);
     }
 
+
     [KernelFunction, Description("Takes some string content and writes it to a given file path.")]
     public string WriteFileContent([Description("Path to the file")] string filePath, [Description("Content to write")] string content)
     {
+        ReportCalling();
+        if(logging)
+        {
+            Console.WriteLine($"Writing content to file {filePath}.");
+            Console.WriteLine($"Content: {content}");
+        }
+
         if (filePath is null or "")
         {
             return $"Error writing to file {filePath}. Please provide a valid file path.";
@@ -64,11 +80,5 @@ internal sealed class FilesPlugin
             "*",
             SearchOption.AllDirectories
         );
-    }
-
-    private static void ReportCalling([CallerMemberName] string caller = "")
-    {
-        if (logging)
-            Console.WriteLine($"Called by: {caller}");
     }
 }
