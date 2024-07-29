@@ -23,6 +23,31 @@ internal sealed class FilesPlugin
         return File.ReadAllText(filePath);
     }
 
+    [KernelFunction, Description("Takes some string content and writes it to a given file path.")]
+    public string WriteFileContent([Description("Path to the file")] string filePath, [Description("Content to write")] string content)
+    {
+        if (filePath is null or "")
+        {
+            return $"Error writing to file {filePath}. Please provide a valid file path.";
+        }
+
+        try
+        {
+            string directoryPath = Path.GetDirectoryName(filePath);
+            if (!Directory.Exists(directoryPath))
+            {
+                Directory.CreateDirectory(directoryPath);
+            }
+
+            File.WriteAllText(filePath, content);
+            return $"Successfully wrote to file {filePath}.";
+        }
+        catch (Exception ex)
+        {
+            return $"Error writing to file {filePath}: {ex.Message}";
+        }
+    }
+
     [KernelFunction, Description("List all files in a given directory.")]
     public string[] ListFilesForGivenDirectory([Description("Directory path")] string directoryPath)
     {
