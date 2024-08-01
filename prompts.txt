@@ -5,11 +5,11 @@ Local:
 Tell me something about the origin of the number 42
 
 Architecture:
-I want to have a azure architecture diagram.
-I want to have a subscription with 2 ResourceGroups.
-Each resource group contains a Azure Function apps, a storage account and a SQL Database.
-ALl the function apps are connected to one key vault which is deployed in a separate ResourceGroup called SharedResource.
-SharedResources also contains a Azure LogAnalytics workspace and Applicaiton Insights, which is used by all the function apps.
-The function apps are also connected to the SQL Database and the sotrage acoount in their ResourceGroups.
+I would like to create an Azure architecture diagram. 
+The architecture should include a subscription with two ResourceGroups. 
+Each ResourceGroup will contain Azure Function apps, a storage account, and a SQL Database.
+All the Function apps should be connected to a single key vault, which will be deployed in a separate ResourceGroup named SharedResource. 
+The SharedResource group will also include an Azure LogAnalytics workspace and Application Insights, both of which will be utilized by the Function apps.
+Additionally, the Function apps will be connected to the SQL Database and the storage account within their respective ResourceGroups. 
 
-Add a Ingress resource group which contains a API Management service which is connected to the function apps.
+Finally, please add an Ingress ResourceGroup that contains an API Management service, which will be connected to the Function apps
