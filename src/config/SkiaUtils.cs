@@ -26,4 +26,23 @@ public static class SkiaUtils
         ;
         surface.Snapshot().Display();
     }
+
+      public static async Task ShowLocalImage(string path, int width, int height)
+    {
+        SKImageInfo info = new SKImageInfo(width, height);
+        SKSurface surface = SKSurface.Create(info);
+        SKCanvas canvas = surface.Canvas;
+        canvas.Clear(SKColors.White);
+        using (Stream stream = File.OpenRead(path))
+        using (MemoryStream memStream = new MemoryStream())
+        {
+            await stream.CopyToAsync(memStream);
+            memStream.Seek(0, SeekOrigin.Begin);
+            SKBitmap webBitmap = SKBitmap.Decode(memStream);
+            canvas.DrawBitmap(webBitmap, 0, 0, null);
+            surface.Draw(canvas, 0, 0, null);
+        }
+        ;
+        surface.Snapshot().Display();
+    }
 }
