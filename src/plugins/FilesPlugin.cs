@@ -54,7 +54,11 @@ public sealed class FilesPlugin
             {
                 Directory.CreateDirectory(directoryPath);
             }
-
+            if(File.Exists(filePath))
+            {
+                File.Delete(filePath);
+            }
+            
             File.WriteAllText(filePath, content);
             return $"Successfully wrote to file {filePath}.";
         }
