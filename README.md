@@ -2,28 +2,36 @@
 
 Welcome to the repository for polyglot notebooks demonstrating the ease of getting started with Large Language Models (LLMs) using Semantic Kernel and C#. This repository contains examples and documentation to help you integrate cutting-edge AI capabilities into your applications.
 
+## Working with the samples
+
+The samples start with a number. I tried to start with simpler samples and than increase the complexity. The sample notebooks contain comments if new things are getting added  or if something is different the in the more simpler samples.
+
+
 ## Getting Started
 
 To begin using the polyglot notebooks in this repository, you'll need to set up your environment with the necessary tools and extensions.
 
 ### Prerequisites
 
-- Install the latest .NET SDK.
-- Install the Visual Studio Code (VS Code) editor.
-- Add the Polyglot Notebooks extension to VS Code.
-- Familiarize yourself with the Semantic Kernel SDK.
+- Install the latest [.NET SDK](https://dotnet.microsoft.com/en-us/download).
+- Install the [Visual Studio Code (VS Code)](https://code.visualstudio.com/Download).
+- Add the [Polyglot Notebooks extension to VS Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode).
 
-### Installation
+### Cofigure Azure OpenAi Settings
 
-1. Clone this repository to your local machine using the following command:
-   ```shell
-   git clone https://github.com/your-username/your-repo-name.git
-   ```
-2. Navigate to the cloned directory:
-   ```shell
-   cd your-repo-name
-   ```
-3. Install the required dependencies (if any).
+Update the [setting file](https://github.com/nampacx/CSharp_AI_Intro/blob/main/src/config/settings.json%20-%20sample)
+
+```json
+{
+  "type": "azure", //azure or openai 
+  "model": "", //for azure openai the deployment name
+  "texttoimagemodel": "",//deployment name of the model used for text to image
+  "endpoint": "", //endpoint of the azure openai serivce
+  "apikey": "", //apikey from the azure openai serivce
+  "aisearchendpoint": "", // azure ai search endpoint
+  "aisearchkey": "" //azure ai search key
+}
+```
 
 ### Using Polyglot Notebooks
 
@@ -33,18 +41,35 @@ Open the `.ipynb` files in VS Code with the Polyglot Notebooks extension to star
 
 Follow the documentation to integrate Semantic Kernel into your C# applications, enabling seamless orchestration of AI services.
 
+### Local models
+
+[Simple-Chat-Local](https://github.com/nampacx/CSharp_AI_Intro/blob/main/src/07-Simple-Chat-Local.ipynb) uses a model hosted on the local machine.
+
+For running the model [Ollama](https://ollama.com/) is used.
+
+After the installation, all we have to do is start the application and use the following cli command:
+```bash
+ollama run phi3:mini
+```
+
+This will download the model an run it locally.
+
+Other Ollama supports many other [models](https://ollama.com/library).
+
 ## Resources
 
 - [Visual Studio Polyglot Extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode) - Enhance your notebook experience in VS Code with support for multiple languages.
 - [Semantic Kernel](https://github.com/microsoft/semantic-kernel) - An open-source SDK for integrating LLMs with conventional programming languages.
+- [Scott and Mark learn AI](https://youtu.be/KKWPSkYN3vw?si=vhPOOex1L-voTsdA)
 
 ## Contributing
 
-Contributions to this repository are welcome. Please read the contributing guidelines before submitting your pull requests.
+Contributions to this repository are welcome.
 
 ## License
 
-This project is licensed under the MIT License - see the *An external link was removed to protect your privacy.* file for details.
+This project is licensed under the MIT License.
+
 
 ## Acknowledgments
 

@@ -19,6 +19,7 @@ public static class Settings
     private const string SecretKey = "apikey";
     private const string AiSearchEndpoint = "aisearchendpoint";
     private const string AiSearchKey = "aisearchkey";
+    private const string TextToImageModelKey = "texttoimagemodel";
 
     private const bool StoreConfigOnFile = true;
 
@@ -26,6 +27,7 @@ public static class Settings
     public static (
         bool useAzureOpenAI,
         string model,
+        string texttoimagemodel,
         string azureEndpoint,
         string apiKey,
         string aisearchendpoint,
@@ -53,10 +55,12 @@ public static class Settings
             string apiKey = config[SecretKey];
             string aisearchendpoint = config[AiSearchEndpoint];
             string aisearchkey = config[AiSearchKey];
+            string texttoimagemodel= config[TextToImageModelKey];
 
             return (
                 useAzureOpenAI,
                 model,
+                texttoimagemodel,
                 azureEndpoint,
                 apiKey,
                 aisearchendpoint,
@@ -66,7 +70,7 @@ public static class Settings
         catch (Exception e)
         {
             Console.WriteLine("Something went wrong: " + e.Message);
-            return (true, "", "", "", "", "");
+            return (true, "","", "", "", "", "");
         }
     }
 }
