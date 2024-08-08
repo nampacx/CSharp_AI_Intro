@@ -26,6 +26,7 @@ Update the [setting file](https://github.com/nampacx/CSharp_AI_Intro/blob/main/s
   "type": "azure", //azure or openai 
   "model": "", //for azure openai the deployment name
   "texttoimagemodel": "",//deployment name of the model used for text to image
+  "textembeddingmodel": "",
   "endpoint": "", //endpoint of the azure openai serivce
   "apikey": "", //apikey from the azure openai serivce
   "aisearchendpoint": "", // azure ai search endpoint
