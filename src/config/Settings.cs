@@ -20,6 +20,7 @@ public static class Settings
     private const string AiSearchEndpoint = "aisearchendpoint";
     private const string AiSearchKey = "aisearchkey";
     private const string TextToImageModelKey = "texttoimagemodel";
+    private const string TextEmbeddingModelKey = "textembeddingmodel";
 
     private const bool StoreConfigOnFile = true;
 
@@ -28,6 +29,7 @@ public static class Settings
         bool useAzureOpenAI,
         string model,
         string texttoimagemodel,
+        string textembeddingmodel,
         string azureEndpoint,
         string apiKey,
         string aisearchendpoint,
@@ -56,11 +58,13 @@ public static class Settings
             string aisearchendpoint = config[AiSearchEndpoint];
             string aisearchkey = config[AiSearchKey];
             string texttoimagemodel= config[TextToImageModelKey];
+            string textembeddingmodel = config[TextEmbeddingModelKey];
 
             return (
                 useAzureOpenAI,
                 model,
                 texttoimagemodel,
+                textembeddingmodel,
                 azureEndpoint,
                 apiKey,
                 aisearchendpoint,
@@ -70,7 +74,7 @@ public static class Settings
         catch (Exception e)
         {
             Console.WriteLine("Something went wrong: " + e.Message);
-            return (true, "","", "", "", "", "");
+            return (true, "", "", "", "", "", "", "");
         }
     }
 }
