@@ -16,6 +16,12 @@ To begin using the polyglot notebooks in this repository, you'll need to set up 
 - Install the latest [.NET SDK](https://dotnet.microsoft.com/en-us/download).
 - Install the [Visual Studio Code (VS Code)](https://code.visualstudio.com/Download).
 - Add the [Polyglot Notebooks extension to VS Code](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode).
+- [Azure OpenAI ](https://learn.microsoft.com/en-us/azure/ai-services/openai/) deployed to region which supports GPT4o and dall-e-3, can be chacked [here](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability)
+
+The following models are used:
+- [GPT4o](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models#gpt-4o-and-gpt-4-turbo)
+- [Dall-e-3](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models#dall-e-models)
+- [text-embedding-ada-002](https://learn.microsoft.com/en-us/azure/ai-services/openai/concepts/models#embeddings-models)
 
 ### Cofigure Azure OpenAi Settings
 
@@ -26,7 +32,6 @@ Update the [setting file](https://github.com/nampacx/CSharp_AI_Intro/blob/main/s
   "type": "azure", //azure or openai 
   "model": "", //for azure openai the deployment name
   "texttoimagemodel": "",//deployment name of the model used for text to image
-  "textembeddingmodel": "",
   "endpoint": "", //endpoint of the azure openai serivce
   "apikey": "", //apikey from the azure openai serivce
   "aisearchendpoint": "", // azure ai search endpoint
