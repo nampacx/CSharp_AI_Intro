@@ -1,0 +1,31 @@
+cloud-architecture-diagram
+// Define groups and nodes
+Subscription Sub1 {
+  ResourceGroup RG1 {
+    FunctionApp1 [icon: azure-function-apps]
+    Storage1 [icon: azure-storage-accounts]
+    SQL1 [icon: azure-sql-database]
+  }
+  ResourceGroup RG2 {
+    FunctionApp2 [icon: azure-function-apps]
+    Storage2 [icon: azure-storage-accounts]
+    SQL2 [icon: azure-sql-database]
+  }
+  ResourceGroup SharedResource {
+    KeyVault [icon: azure-key-vaults]
+    LogAnalytics [icon: azure-log-analytics-workspaces]
+    AppInsights [icon: azure-application-insights]
+  }
+}
+
+// Define connections
+FunctionApp1 > Storage1
+FunctionApp1 > SQL1
+FunctionApp1 > KeyVault
+FunctionApp1 > LogAnalytics
+FunctionApp1 > AppInsights
+FunctionApp2 > Storage2
+FunctionApp2 > SQL2
+FunctionApp2 > KeyVault
+FunctionApp2 > LogAnalytics
+FunctionApp2 > AppInsights
